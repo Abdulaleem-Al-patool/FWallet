@@ -223,7 +223,7 @@ export function NotificationPage() {
                     <Notification
                         key={notification.userId}
                         notification={notification}
-                        onClick={() => navigate(`/transactions/${notification.userId}`)}
+                        onClick={() => navigate(`/transactions/${notification.userId}`,{state:{transactionData:notification}})}
                     />
 
                 ))}

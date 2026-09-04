@@ -11,6 +11,9 @@ import { LoginPage } from "./features/auth/login.page";
 import { SignupPage } from "./features/auth/signup.page";
 import {TransactionsPage} from "./features/Transactions/Transaction.page";
 import {TransactionDetails} from "./features/TransactionDetails/TransactionDetails.Page";
+import {AccountsPage} from "./features/accounts/accounts.page";
+
+
 import "./features/auth/auth.style.css"
 
 export default function App(){
@@ -37,7 +40,7 @@ export default function App(){
             element={<TransactionDetails/>}
         />
             </Route>
-             
+             <Route path="/accounts" element={<AccountsPage/>}>  </Route>
           </Route>
         </Routes>
    

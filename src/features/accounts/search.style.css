@@ -1,0 +1,40 @@
+.container-search {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* محاذاة عمودية في المنتصف */
+    
+    width: 100%; /* استهلاك العرض المتاح بدلاً من 80% للتناسق مع باقي المكونات */
+    max-width: 800px;
+    height: 120px;
+    
+    background-color: #f6f8fb; /* استبدال aquamarine بلون متناسق مع الداشبورد */
+    border: 1px solid #dfe6ef;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    margin: 20px auto; /* توسيط الحاوية في الصفحة */
+}
+
+/* تنسيق حقل الإدخال */
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    height: 48px;
+    
+    padding: 0 20px;
+    border: 1px solid #dce4ee;
+    border-radius: 12px;
+    outline: none;
+    
+    font-size: 16px;
+    color: #10233f;
+    background-color: #ffffff;
+    
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+    border-color: #266a87;
+    box-shadow: 0 0 0 3px rgba(38, 106, 135, 0.15);
+}
