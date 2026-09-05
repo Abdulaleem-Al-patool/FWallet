@@ -5,7 +5,7 @@ import {NotificationData} from "../../shared/utils/NotificationData"
 import { useNavigate } from "react-router-dom";
 import "./notification.style.css";
 
-const today = new Date().toLocaleString("ar-SA");
+const today = new Date().toLocaleString("en-SA");
 
 // const Data = [
 //     {
