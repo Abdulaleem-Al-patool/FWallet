@@ -4,6 +4,7 @@ import { httpClient } from '../../shared/utils/HttClient';
 
 const AuthContext=createContext(null)
 export function AuthProvider({children}){
+  
     const [isLoggedIn,setIsLoggedIn]=useState(false);
     const [token,setToken]=useState("")
     async function login(username,password){
@@ -11,6 +12,7 @@ export function AuthProvider({children}){
         const user = Array.isArray(users) ? users.find(item => item.userName === username && item.password === password) : null;
         if(user){
             setIsLoggedIn(true);
+            setToken(user.token);
             return user;
         }
         throw { message: "بيانات الدخول غير صحيحة" };

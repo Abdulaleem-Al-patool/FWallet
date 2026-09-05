@@ -14,8 +14,9 @@ import {
 } from "lucide-react";
 import reactLogo from "../assets/hero.png";
 
-import { useAppData } from "../core/state/AppDataContext";
-
+import { useAppData } from "../core/state/useAppData.jsx";
+import { useAuth } from "../core/auth/AuthContext";
+import { useNavigate } from "react-router-dom";
 const MENU_SECTIONS = [
   {
     title: "الرئيسية",
@@ -31,7 +32,7 @@ const MENU_SECTIONS = [
         to: "/accounts",
         label: "الحسابات المربوطة",
         icon: WalletCards,
-        badgeKey: "accounts",
+        badgeKey: "accounts_count",
       },
       { to: "/add-account", label: "إضافة حساب جديد", icon: CirclePlus },
       { to: "/transactions", label: "سجل المعاملات", icon: ReceiptText },
@@ -55,7 +56,7 @@ const MENU_SECTIONS = [
         to: "/notifications",
         label: "الإشعارات والتنبيهات",
         icon: Bell,
-        badgeKey: "notifications_unread",
+        badgeKey: "unread_notifications",
       },
       { to: "/sync-status", label: "حالة مزامنة المزودين", icon: RotateCw },
       { to: "/settings", label: "إعدادات الحساب والربط", icon: Settings },
@@ -63,12 +64,13 @@ const MENU_SECTIONS = [
   },
 ];
 
-// دالة className مشتركة بدل تكرارها 8 مرات
+
 function navLinkClassName({ isActive }) {
   return isActive ? "nav-item active" : "nav-item";
 }
 
 function MenuItem({ to, label, icon: Icon, badgeValue }) {
+
   return (
     <li>
       <NavLink className={navLinkClassName} to={to}>
@@ -84,6 +86,8 @@ function MenuItem({ to, label, icon: Icon, badgeValue }) {
 
 export function SideBar() {
   const { data } = useAppData();
+  const {logout}=useAuth()
+  const navigate=useNavigate();
 
   return (
     <>
@@ -124,7 +128,7 @@ export function SideBar() {
             <h6>جلسة نشطة</h6>
           </div>
         </button>
-        <button className="logout-sidebar">
+        <button className="logout-sidebar"  onClick={()=>{logout() ;navigate("/login")}}>
           <LogOut size={18} />
           <p>تسجيل الخروج</p>
         </button>

@@ -1,29 +1,36 @@
-import { createContext,useState,useContext,useEffect } from "react"
+import { useState,useEffect } from "react"
 import { Navigate } from "react-router-dom";
 import {useAuth} from '../auth/AuthContext.jsx'
-import { fetchAppData } from "./AppDataApi";
-const AppDataContext=createContext(null)
+import { fetchAppData } from "./AppDataApi.jsx";
+import {AppDataContext} from "./AppDataContext.data.jsx"
+import { fetchData } from "../../shared/utils/FetchData.jsx";
+
 export function AppDataProvider({children}){
-const {isLoggedIn} =useAuth()
+const {isLoggedIn, token} =useAuth()
 const [data,setData]=useState(null);
 const [status,setStatus]=useState("loading");
+console.log("Hello");
 const loadData=()=>{
-   fetchAppData()
+    fetchData("appData.json",token)
     .then((res)=>{setData(res)
        ;setStatus("success")})
-    .catch(()=>setStatus("error"))
+    .catch((error)=>{
+ console.log(`in error:${error}`);
+        setStatus("error")
+    })
 }
 useEffect(()=>{
     if(!isLoggedIn) return
     loadData();
-},[isLoggedIn]);
+    console.log("after load Data");
+},[]);
 
 if(!isLoggedIn) return <Navigate to='/login' replace/>
 if(status==='loading')
   return(<div>
     جاري التحميل    
   </div>)
-if(status=="error")
+if(status==="error")
     return <div>حصل خطاء</div>
 
 return (
@@ -32,9 +39,4 @@ return (
     </AppDataContext.Provider>
 )
 
-}
-export function useAppData(){
-    const  ctx=useContext(AppDataContext);
-    if (!ctx) throw new Error('useAppData must be used inside AppDataProvider');
-  return ctx;
 }
