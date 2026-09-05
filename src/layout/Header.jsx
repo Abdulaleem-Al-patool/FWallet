@@ -1,7 +1,8 @@
 import reactLogo from "../assets/hero.png"
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { NotificationBell } from "../shared/utils/NotificationBell";
+import { NotificationBell } from "../features/notifications/notificationbell";
+import {Bell} from "lucide-react"
 const pageTitles = {
   "/Dashboard": "لوحة التحكم",
   "/analytics": "التحليلات والتدفقات",
@@ -43,7 +44,8 @@ export function Header() {
             navigate("/notifications");
         }}
     >
-        <i className="fa-regular fa-bell"></i>
+        {/* <i className="fa-regular fa-bell"></i> */}
+        <Bell size={22}/>
     </button>
 
 </NotificationBell>

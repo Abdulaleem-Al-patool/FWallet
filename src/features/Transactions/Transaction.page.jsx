@@ -1,9 +1,35 @@
 import {ContainerBox} from "../../shared/utils/ContainerBox";
-import {TransactionData} from "../../shared/utils/TransactionData";
+import { useAuth } from "../../core/auth/AuthContext";
 
+import { useQuery } from "@tanstack/react-query";
+import {fetchData} from "../../shared/utils/FetchData";
 
 export function TransactionsPage(){
-    
+    const {token}=useAuth();
+
+    const{data:TransactionData=[],
+        isLoading,
+        isError,
+        error
+    }=useQuery({queryKey:["transactions",token],
+        queryFn:()=>fetchData('TransactionTemp.json',token),
+        enabled:!!token,
+
+    })
+
+    if(isLoading){
+        return (<div>
+            جاري التحميل ...
+        </div>);
+
+    }
+    if(isError){
+        return ( <div>
+            حدث خطأ <br />
+            {error?.message}
+        </div>
+        );
+    }
 
     return(
         <>
@@ -16,7 +42,7 @@ export function TransactionsPage(){
 
 
 
- {TransactionData.map((transaction) => (
+ {TransactionData?.map((transaction) => (
                 <ContainerBox key={transaction.id} className="trans-container" >
 
                     <div className="transaction-title">
@@ -40,7 +66,7 @@ export function TransactionsPage(){
                     </div>
 
                     <div className="transaction-date">
-                        {transaction.date}
+                              {new Date(transaction.date).toLocaleString("ar-SA")}
                     </div>
 
                 </ContainerBox>

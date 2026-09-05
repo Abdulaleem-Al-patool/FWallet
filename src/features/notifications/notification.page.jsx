@@ -1,57 +1,13 @@
 import { useState } from "react";
 import {ContainerBox} from "../../shared/utils/ContainerBox";
-import {NotificationData} from "../../shared/utils/NotificationData"
+import { useAuth } from "../../core/auth/AuthContext";
+import { useQuery } from "@tanstack/react-query";
+import {fetchData} from "../../shared/utils/FetchData";
 
 import { useNavigate } from "react-router-dom";
 import "./notification.style.css";
 
-const today = new Date().toLocaleString("en-SA");
 
-// const Data = [
-//     {
-//         userId: "usr_fwallet_01",
-//         title: "اكتمال التحويل بنجاح",
-//         message:
-//             "تم تحويل مبلغ 2,500.00 ريال بنجاح من حساب الأهلي إلى حساب الراجحي الجاري.",
-//         IsRead: false,
-//         date: today,
-//         type: "transfer",
-//         icon: "↔",
-//     },
-
-//     {
-//         userId: "usr_fwallet_02",
-//         title: "تأكيد مزامنة المزودات",
-//         message:
-//             "تمت مزامنة جميع الحسابات المربوطة بنجاح.",
-//         IsRead: true,
-//         date: today,
-//         type: "sync",
-//         icon: "↻",
-//     },
-
-//     {
-//         userId: "usr_fwallet_03",
-//         title: "إيداع مالي جديد عبر Webhook",
-//         message:
-//             "استقبل النظام إشعار إيداع 1,250.00 USD.",
-//         IsRead: false,
-//         date: today,
-//         type: "webhook",
-//         icon: "⚡",
-//     },
-
-//     {
-//         userId: "usr_fwallet_04",
-//         title: "تنبيه الموازنة",
-//         message:
-//             "اقترب الإنفاق من الحد المحدد للموازنة.",
-//         IsRead: true,
-//         date: today,
-//         type: "budget",
-//         icon: "⚠",
-//     },
-// ];
 
 
 
@@ -92,7 +48,7 @@ export function Notification({ notification,onClick }) {
 
                 <div className="notification-title">
 
-                    {!notification.IsRead && (
+                    {!notification.isRead && (
                         <span className="unread-dot"></span>
                     )}
 
@@ -109,7 +65,7 @@ export function Notification({ notification,onClick }) {
 
 
             <div className="notification-date">
-                {notification.date}
+                  {new Date().toLocaleString("ar-SA")}
             </div>
 
         </div>
@@ -119,22 +75,49 @@ export function Notification({ notification,onClick }) {
 
 
 
-export function NotificationPage() {
+export function NotificationPage () {
    const navigate=useNavigate();
+  const {token}=useAuth();
 
     const [activeTab, setActiveTab] = useState("all");
-
-
   
 
-    const filteredData = NotificationData.filter((notification) => {
+    const {
+        data:notifications=[],
+        isLoading,
+        isError,
+        error
+    }=useQuery({queryKey:["notifications",token],
+   queryFn:()=>fetchData("NotificationData.json",token),
+   enabled:!!token,
+
+
+    })
+
+
+    if(isLoading){
+        return (   <div>
+            جاري التحميل ...
+        </div>
+        );
+    }
+    if(isError){
+        return(  <div>
+            خكأ 
+            {error?.message}
+
+        </div> );
+    }
+  
+
+    const filteredData = notifications?.filter((notification) => {
 
         if (activeTab === "all") {
             return true;
         }
 
         if (activeTab === "unread") {
-            return notification.IsRead === false;
+            return notification.isRead === false;
         }
 
         if (activeTab === "transfer") {
@@ -176,7 +159,7 @@ export function NotificationPage() {
                     active={activeTab === "all"}
                     onClick={() => setActiveTab("all")}
                 >
-                    كافة الإشعارات ({NotificationData.length})
+                    كافة الإشعارات ({notifications.length})
                 </Button>
 
 
@@ -186,8 +169,8 @@ export function NotificationPage() {
                 >
                     غير المقروءة (
                     {
-                        NotificationData.filter(
-                            notification => !notification.IsRead
+                        notifications?.filter(
+                            notification => !notification.isRead
                         ).length
                     }
                     )

@@ -33,7 +33,7 @@ export default function App(){
             <Route element={<AppDataProvider><AppLayout/></AppDataProvider>}>
               <Route path="/" element={<WelcomePage/>}/>
               <Route path="/dashboard" element={<Dashboard/>}> </Route>
-                <Route path="/notifications" element={<NotificationPage/>}> </Route>
+                <Route path="/notifications" element={<NotificationPage  />}> </Route>
                 <Route path="/transactions" element={<TransactionsPage/>}></Route>
                  <Route
             path="/transactions/:id"

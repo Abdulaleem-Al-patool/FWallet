@@ -1,17 +1,34 @@
 import { useNavigate } from "react-router-dom";
-import { NotificationData } from "./NotificationData";
+import { useAuth } from "../../core/auth/AuthContext";
+import { useQuery } from "@tanstack/react-query";
+import {fetchData} from "../../shared/utils/FetchData"
+
 
 import "./NotificationBell.style.css";
 
 export function NotificationBell({ children }) {
 
     const navigate = useNavigate();
+    const{token}=useAuth();
 
-    const unreadCount = NotificationData.filter(
-        notification => !notification.IsRead
+     const {
+        data:notificationData=[],
+        isLoading,
+        isError,
+        error
+    }=useQuery({queryKey:["notifications",token],
+   queryFn:()=>fetchData("NotificationData.json",token),
+   enabled:!!token,
+
+
+    })  
+
+    const notifications = Array.isArray(notificationData) ? notificationData : [];
+    const unreadCount = notifications.filter(
+        notification => !notification.isRead
     ).length;
 
-    const latestNotifications = NotificationData.slice(0, 3);
+    const latestNotifications = notifications.slice(0, 3);
 
 
     const handleNotificationClick = (notification) => {
@@ -31,16 +48,16 @@ export function NotificationBell({ children }) {
     return (
         <div className="notification-bell-container">
 
-            {/* الجرس الموجود في Header */}
+           
 
             {children}
 
 
-            {/* Dropdown */}
+      
 
             <div className="notification-dropdown">
 
-                {/* Header */}
+            
 
                 <div className="notification-dropdown-header">
 
@@ -55,7 +72,6 @@ export function NotificationBell({ children }) {
                 </div>
 
 
-                {/* Notifications */}
 
                 <div className="notification-dropdown-list">
 
@@ -80,7 +96,7 @@ export function NotificationBell({ children }) {
 
                                 <div className="notification-preview-title">
 
-                                    {!notification.IsRead && (
+                                    {!notification.isRead && (
                                         <span className="preview-unread-dot"></span>
                                     )}
 
@@ -107,7 +123,7 @@ export function NotificationBell({ children }) {
                 </div>
 
 
-                {/* Footer */}
+              
 
                 <div className="notification-dropdown-footer">
 

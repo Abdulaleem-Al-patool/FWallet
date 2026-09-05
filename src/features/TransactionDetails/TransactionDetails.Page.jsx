@@ -6,6 +6,9 @@ import "./TransactionDetails.style.css"
 export function TransactionDetails() {
     const { id } = useParams();
     const location=useLocation();
+  
+
+
 const Data=location.state?.transactionData;
 
 
