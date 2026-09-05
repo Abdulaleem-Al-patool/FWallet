@@ -1,56 +1,57 @@
 import { useState } from "react";
 import {ContainerBox} from "../../shared/utils/ContainerBox";
+import {NotificationData} from "../../shared/utils/NotificationData"
 
 import { useNavigate } from "react-router-dom";
 import "./notification.style.css";
 
 const today = new Date().toLocaleString("ar-SA");
 
-const Data = [
-    {
-        userId: "usr_fwallet_01",
-        title: "اكتمال التحويل بنجاح",
-        message:
-            "تم تحويل مبلغ 2,500.00 ريال بنجاح من حساب الأهلي إلى حساب الراجحي الجاري.",
-        IsRead: false,
-        date: today,
-        type: "transfer",
-        icon: "↔",
-    },
+// const Data = [
+//     {
+//         userId: "usr_fwallet_01",
+//         title: "اكتمال التحويل بنجاح",
+//         message:
+//             "تم تحويل مبلغ 2,500.00 ريال بنجاح من حساب الأهلي إلى حساب الراجحي الجاري.",
+//         IsRead: false,
+//         date: today,
+//         type: "transfer",
+//         icon: "↔",
+//     },
 
-    {
-        userId: "usr_fwallet_02",
-        title: "تأكيد مزامنة المزودات",
-        message:
-            "تمت مزامنة جميع الحسابات المربوطة بنجاح.",
-        IsRead: true,
-        date: today,
-        type: "sync",
-        icon: "↻",
-    },
+//     {
+//         userId: "usr_fwallet_02",
+//         title: "تأكيد مزامنة المزودات",
+//         message:
+//             "تمت مزامنة جميع الحسابات المربوطة بنجاح.",
+//         IsRead: true,
+//         date: today,
+//         type: "sync",
+//         icon: "↻",
+//     },
 
-    {
-        userId: "usr_fwallet_03",
-        title: "إيداع مالي جديد عبر Webhook",
-        message:
-            "استقبل النظام إشعار إيداع 1,250.00 USD.",
-        IsRead: false,
-        date: today,
-        type: "webhook",
-        icon: "⚡",
-    },
+//     {
+//         userId: "usr_fwallet_03",
+//         title: "إيداع مالي جديد عبر Webhook",
+//         message:
+//             "استقبل النظام إشعار إيداع 1,250.00 USD.",
+//         IsRead: false,
+//         date: today,
+//         type: "webhook",
+//         icon: "⚡",
+//     },
 
-    {
-        userId: "usr_fwallet_04",
-        title: "تنبيه الموازنة",
-        message:
-            "اقترب الإنفاق من الحد المحدد للموازنة.",
-        IsRead: true,
-        date: today,
-        type: "budget",
-        icon: "⚠",
-    },
-];
+//     {
+//         userId: "usr_fwallet_04",
+//         title: "تنبيه الموازنة",
+//         message:
+//             "اقترب الإنفاق من الحد المحدد للموازنة.",
+//         IsRead: true,
+//         date: today,
+//         type: "budget",
+//         icon: "⚠",
+//     },
+// ];
 
 
 
@@ -126,7 +127,7 @@ export function NotificationPage() {
 
   
 
-    const filteredData = Data.filter((notification) => {
+    const filteredData = NotificationData.filter((notification) => {
 
         if (activeTab === "all") {
             return true;
@@ -165,7 +166,7 @@ export function NotificationPage() {
    <ContainerBox>
      <h1> الاشعارات 
 </h1>
-<h3> الاشعارات زززززز </h3>
+<h3> الاشعارات ............ </h3>
    </ContainerBox>
             
 
@@ -175,7 +176,7 @@ export function NotificationPage() {
                     active={activeTab === "all"}
                     onClick={() => setActiveTab("all")}
                 >
-                    كافة الإشعارات ({Data.length})
+                    كافة الإشعارات ({NotificationData.length})
                 </Button>
 
 
@@ -185,7 +186,7 @@ export function NotificationPage() {
                 >
                     غير المقروءة (
                     {
-                        Data.filter(
+                        NotificationData.filter(
                             notification => !notification.IsRead
                         ).length
                     }

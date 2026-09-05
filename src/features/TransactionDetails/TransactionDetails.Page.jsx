@@ -26,17 +26,6 @@ const Data=location.state?.transactionData;
 
       </ContainerBox>
 
-        <ContainerBox className="box">
-       <h2>{id}</h2>
-<h3>العملية </h3>
-
-      </ContainerBox>
-
-        <ContainerBox className="box">
-       <h2>{id}</h2>
-<h3>العملية </h3>
-
-      </ContainerBox>
        
          </div >
     );

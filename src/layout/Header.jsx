@@ -1,7 +1,7 @@
 import reactLogo from "../assets/hero.png"
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-
+import { NotificationBell } from "../shared/utils/NotificationBell";
 const pageTitles = {
   "/Dashboard": "لوحة التحكم",
   "/analytics": "التحليلات والتدفقات",
@@ -35,9 +35,18 @@ export function Header() {
     <span>تحويل مالي جديد</span>
     <i className="fa-regular fa-paper-plane"></i>
   </button>
-      <button className="notification" onClick={()=>{navigate("/notifications")}}>
-      <i className="fa-regular fa-bell"></i>
+    <NotificationBell>
+
+    <button
+        className="notification"
+        onClick={() => {
+            navigate("/notifications");
+        }}
+    >
+        <i className="fa-regular fa-bell"></i>
     </button>
+
+</NotificationBell>
      <div className="header-profile">
     <div className="profile-head-img">
         <img  src={reactLogo}></img>  

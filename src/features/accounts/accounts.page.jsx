@@ -16,7 +16,7 @@ return(
 
 <SearchBar/>
 
-<FilterListAltIcon />
+
     </div>
 );
 
