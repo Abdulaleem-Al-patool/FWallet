@@ -1,5 +1,5 @@
 // import FilterListAltIcon from '@mui/icons-material/FilterListAlt';
-import {ContainerBox} from "../../shared/utils/ContainerBox";
+import {ContainerBox} from "@/shared/utils/ContainerBox";
 import "./search.style.css"
 import {Header} from "../../layout/Header";
 

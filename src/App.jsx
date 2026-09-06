@@ -12,9 +12,9 @@ import { SignupPage } from "./features/auth/signup.page";
 import {TransactionsPage} from "./features/Transactions/Transaction.page";
 import {TransactionDetails} from "./features/TransactionDetails/TransactionDetails.Page";
 import {AccountsPage} from "./features/accounts/accounts.page";
+import "./features/auth/login.style.css"
 
 
-import "./features/auth/auth.style.css"
 import { SettingsPage } from "./features/settings/settings.page";
 
 export default function App(){

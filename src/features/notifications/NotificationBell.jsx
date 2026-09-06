@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../core/auth/AuthContext";
 import { useQuery } from "@tanstack/react-query";
-import {fetchData} from "../../shared/utils/FetchData"
+import {fetchData} from "@/shared/utils/FetchData"
 
 
 import "./NotificationBell.style.css";

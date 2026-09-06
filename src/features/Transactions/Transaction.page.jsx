@@ -1,8 +1,8 @@
-import {ContainerBox} from "../../shared/utils/ContainerBox";
+import {ContainerBox} from "@/shared/utils/ContainerBox";
 import { useAuth } from "../../core/auth/AuthContext";
 
 import { useQuery } from "@tanstack/react-query";
-import {fetchData} from "../../shared/utils/FetchData";
+import {fetchData} from "@/shared/utils/FetchData";
 
 export function TransactionsPage(){
     const {token}=useAuth();

@@ -106,6 +106,7 @@ background-color: #8197b571;
 .notifications-card {
     width: 100%;
 
+
     background-color: var(--notification-card);
 
     border: 1px solid var(--notification-border);
@@ -128,9 +129,9 @@ background-color: #8197b571;
 
     align-items: center;
 
-    min-height: 143px;
+    min-height: 50px;
 
-    padding: 25px 35px;
+    padding: 10px 20px;
 
     box-sizing: border-box;
 
@@ -152,8 +153,8 @@ background-color: #8197b571;
 .notification-icon {
     flex-shrink: 0;
 
-    width: 68px;
-    height: 68px;
+    width: 40px;
+    height: 40px;
 
     margin-right: 0;
     margin-left: 20px;
@@ -165,7 +166,7 @@ background-color: #8197b571;
     align-items: center;
     justify-content: center;
 
-    font-size: 25px;
+    font-size: 20px;
 
     font-weight: 700;
 }
@@ -219,9 +220,9 @@ background-color: #8197b571;
 
     color: #071b35;
 
-    font-size: 18px;
+    font-size: 15px;
 
-    font-weight: 800;
+    font-weight: bold;
 }
 
 
@@ -263,7 +264,7 @@ background-color: #8197b571;
 
     color: #8197b5;
 
-    font-size: 17px;
+    font-size: 14px;
 
     text-align: left;
 

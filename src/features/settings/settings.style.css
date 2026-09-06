@@ -51,116 +51,6 @@
   background: radial-gradient(circle, rgba(13, 42, 74, .06), rgba(13, 42, 74, 0) 72%)
 }
 
-.fw-lux-header {
-  max-width: 1120px;
-  margin: 0 auto 26px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px
-}
-
-.fw-lux-brand-line {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 9px;
-  color: var(--lux-navy);
-  font-size: 14px;
-  font-weight: 900;
-  letter-spacing: .4px
-}
-
-.fw-lux-brand-mark {
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--lux-navy);
-  color: var(--lux-navy);
-  font-size: 14px
-}
-
-.fw-lux-brand-block h1 {
-  margin: 0;
-  font-size: 32px;
-  font-weight: 950;
-  letter-spacing: -.4px
-}
-
-.fw-lux-brand-block p {
-  max-width: 550px;
-  margin: 8px 0 0;
-  color: var(--lux-muted);
-  font-size: 13px;
-  line-height: 1.8
-}
-
-.fw-lux-account-chip {
-  min-width: 300px;
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) 10px;
-  align-items: center;
-  gap: 11px;
-  padding: 11px 13px;
-  background: rgba(255, 255, 255, .92);
-  border: 1px solid var(--lux-border);
-  border-radius: 18px;
-  box-shadow: 0 10px 28px rgba(16, 34, 54, .045);
-  backdrop-filter: blur(8px)
-}
-
-.fw-lux-account-avatar {
-  width: 48px;
-  height: 48px;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: linear-gradient(145deg, var(--lux-navy), var(--lux-navy-3));
-  color: #fff;
-  font-weight: 900
-}
-
-.fw-lux-account-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover
-}
-
-.fw-lux-account-copy {
-  min-width: 0;
-  display: flex;
-  flex-direction: column
-}
-
-.fw-lux-account-copy strong {
-  margin-bottom: 3px;
-  font-size: 14px
-}
-
-.fw-lux-account-copy span {
-  overflow: hidden;
-  color: var(--lux-muted);
-  font-size: 14px;
-  white-space: nowrap;
-  text-overflow: ellipsis
-}
-
-.fw-lux-save-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--lux-success);
-  box-shadow: 0 0 0 5px rgba(29, 135, 80, .08)
-}
-
-.fw-lux-save-dot.dirty {
-  background: var(--lux-warning);
-  box-shadow: 0 0 0 5px rgba(183, 123, 32, .08)
-}
-
 .fw-lux-view-in {
   animation: luxViewIn .48s cubic-bezier(.2, .8, .2, 1) both
 }
@@ -207,37 +97,6 @@
   inset: 0;
   pointer-events: none;
   background: linear-gradient(90deg, rgba(13, 42, 74, .025), transparent 42%), radial-gradient(circle at 82% 40%, rgba(13, 42, 74, .045), transparent 30%)
-}
-
-.fw-lux-hero-copy {
-  position: relative;
-  z-index: 2;
-  max-width: 610px
-}
-
-.fw-lux-eyebrow {
-  display: block;
-  margin-bottom: 8px;
-  color: #bfd0df;
-  font-size: 14px;
-  font-weight: 900;
-  letter-spacing: 1.3px
-}
-
-.fw-lux-hero-copy h2 {
-  max-width: 540px;
-  margin: 0;
-  font-size: 30px;
-  line-height: 1.35;
-  font-weight: 950
-}
-
-.fw-lux-hero-copy p {
-  max-width: 560px;
-  margin: 12px 0 0;
-  color: #d4e0e9;
-  font-size: 14px;
-  line-height: 1.9
 }
 
 .fw-lux-hero-ornament {
@@ -424,6 +283,7 @@
   margin-bottom: 7px;
   font-size: 17px;
   font-weight: 900
+  
 }
 
 .fw-lux-card-copy p {
@@ -528,85 +388,8 @@
 
 .fw-lux-detail-shell {
   display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
   gap: 18px;
   align-items: stretch
-}
-
-.fw-lux-detail-rail {
-  position: relative;
-  overflow: hidden;
-  min-height: 610px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 26px 22px;
-  border-radius: 24px;
-  background: linear-gradient(180deg, var(--lux-navy) 0%, #143958 55%, #1a456d 100%);
-  color: #fff;
-  box-shadow: 0 22px 44px rgba(13, 42, 74, .15)
-}
-
-.fw-lux-detail-rail::after {
-  content: "";
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  left: -120px;
-  bottom: -70px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, .09);
-  box-shadow: 0 0 0 40px rgba(255, 255, 255, .025), 0 0 0 80px rgba(255, 255, 255, .018)
-}
-
-.fw-lux-rail-number {
-  align-self: flex-start;
-  color: rgba(255, 255, 255, .30);
-  font-size: 34px;
-  font-weight: 950;
-  letter-spacing: -1px
-}
-
-.fw-lux-rail-icon {
-  width: 74px;
-  height: 74px;
-  margin-top: 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .10);
-  border: 1px solid rgba(255, 255, 255, .20);
-  box-shadow: 0 0 0 10px rgba(255, 255, 255, .025), 0 16px 34px rgba(0, 0, 0, .10)
-}
-
-.fw-lux-rail-icon svg {
-  width: 29px;
-  height: 29px
-}
-
-.fw-lux-rail-line {
-  width: 1px;
-  height: 90px;
-  margin: 16px 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .50), rgba(255, 255, 255, .06))
-}
-
-.fw-lux-rail-copy {
-  position: relative;
-  z-index: 2;
-  text-align: center
-}
-
-.fw-lux-rail-copy strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 17px
-}
-
-.fw-lux-rail-copy small {
-  color: #c5d4e1;
-  font-size: 14px;
-  line-height: 1.8
 }
 
 .fw-lux-form-panel {
@@ -635,7 +418,7 @@
   letter-spacing: 1px
 }
 
-.fw-lux-form-head h2 {
+.fw-lux-form-head h3 {
   margin: 0 0 5px;
   font-size: 23px;
   font-weight: 950
@@ -1067,15 +850,6 @@
 }
 
 @media (max-width:900px) {
-  .fw-lux-header {
-    flex-direction: column
-  }
-
-  .fw-lux-account-chip {
-    width: 100%;
-    min-width: 0
-  }
-
   .fw-lux-hero {
     grid-template-columns: 1fr
   }
@@ -1086,31 +860,6 @@
 
   .fw-lux-detail-shell {
     grid-template-columns: 1fr
-  }
-
-  .fw-lux-detail-rail {
-    min-height: 180px;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 16px
-  }
-
-  .fw-lux-rail-number {
-    align-self: center
-  }
-
-  .fw-lux-rail-icon {
-    margin: 0
-  }
-
-  .fw-lux-rail-line {
-    width: 70px;
-    height: 1px;
-    margin: 0
-  }
-
-  .fw-lux-rail-copy {
-    text-align: right
   }
 }
 
@@ -1139,16 +888,6 @@
   .fw-lux-detail-toolbar {
     align-items: flex-start;
     flex-direction: column
-  }
-
-  .fw-lux-detail-rail {
-    align-items: flex-start;
-    flex-direction: column
-  }
-
-  .fw-lux-rail-line {
-    width: 1px;
-    height: 40px
   }
 
   .fw-lux-form-footer {
@@ -1247,6 +986,7 @@
     gap: 14px
   }
 
+  
   .fw-lux-hero-account-avatar {
     width: 64px;
     height: 64px;
