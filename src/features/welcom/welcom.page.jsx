@@ -1,6 +1,7 @@
 import "./welcom.style.css"
-
+import { useNavigate } from "react-router-dom"
 export function WelcomePage(){
+    const navigate=useNavigate()
     return (
             <div className="welcome-page">
 
@@ -11,10 +12,10 @@ export function WelcomePage(){
                 </div>
 
                 <div className="auth-btns">
-                        <button className="login-btn">
+                        <button className="login-btn" onClick={()=>navigate("/login")}>
                     تسجيل الدخول
                 </button>
-                <button className="register-btn">
+                <button className="register-btn" onClick={()=>navigate("/signup")}>
                     إنشاء حساب
                 </button>
                 </div>
@@ -42,7 +43,7 @@ export function WelcomePage(){
                       FWallet تساعدك على إدارة أموالك ومعاملاتك بطريقة سهلة ومنظمة، لتبقى على اطلاع دائم بأموالك وتتحكم في معاملاتك من مكان واحد.
                     </p>
 
-                    <button className="start-btn">
+                    <button className="start-btn" onClick={()=>navigate("/signup")}>
                         ابدأ الآن
                     </button>
 
