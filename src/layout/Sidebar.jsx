@@ -119,12 +119,12 @@ export function SideBar() {
       <hr />
 
       <div>
-        <button className="profile">
-          <div className="profile-img">
-            <img src={reactLogo} alt="صورة المستخدم" />
+        <button className="profile" onClick={()=>{navigate("/settings")}}>
+          <div className="profile-img profile-image">
+            <img src={data.img} alt="صورة المستخدم" />
           </div>
           <div className="profile-title">
-            <p>أحمد الطويل</p>
+            <p>{data.name}</p>
             <h6>جلسة نشطة</h6>
           </div>
         </button>

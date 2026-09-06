@@ -1,97 +1,111 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import { useAuth } from "../../core/auth/AuthContext";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Camera,
-  Eye,
-  EyeOff,
-  IdCard,
-  Lock,
-  Mail,
-  MapPin,
-  Phone,
-  User,
-} from "lucide-react";
-
-const initialData = {
-  avatar: "",
-  fullName: "",
-  username: "",
-  email: "",
-  phone: "",
-  nationalId: "",
-  gender: "",
-  birthDate: "",
-  address: "",
-  password: "",
-  confirmPassword: "",
-};
+// import "./auth.style.css"
+import { ArrowLeft, ArrowRight, Camera } from "lucide-react";
 
 export function SignupPage() {
   const { register } = useAuth();
   const navigate = useNavigate();
 
   const [step, setStep] = useState(1);
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState({});
+  const [avatar, setAvatar] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const update = (name, value) => {
-    setData((prev) => ({ ...prev, [name]: value }));
-    setError("");
-  };
+  function showUserNameError(error){
+        return (
+            <div className="username-error error-message">
+              <span>⚠</span>  {error}    
+            </div>
+        );
+     }
 
   const uploadAvatar = (event) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = () => update("avatar", reader.result);
+    reader.onload = () => setAvatar(reader.result);
     reader.readAsDataURL(file);
   };
 
-  const validate = () => {
-    if (step === 1 && (!data.fullName.trim() || !data.username.trim())) {
-      setError("أكمل الاسم الكامل واسم المستخدم.");
-      return false;
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError("");
+
+    const formData = new FormData(event.currentTarget);
+
+    if (step === 1) {
+      const fullName = formData.get("fullName") || "";
+      const username = formData.get("username") || "";
+
+      if (!fullName.trim() || !username.trim()) {
+        setError("أكمل الاسم الكامل واسم المستخدم.");
+        return;
+      }
+
+      setData((prev) => ({ ...prev, avatar, fullName, username }));
+      setStep(2);
+      return;
     }
 
-    if (
-      step === 2 &&
-      (!data.email.trim() || !data.phone.trim() || !data.nationalId.trim())
-    ) {
-      setError("أكمل البريد الإلكتروني ورقم الهاتف والرقم الوطني.");
-      return false;
+    if (step === 2) {
+      const email = formData.get("email") || "";
+      const phone = formData.get("phone") || "";
+      const nationalId = formData.get("nationalId") || "";
+
+      if (!email.trim() || !phone.trim() || !nationalId.trim()) {
+        setError("أكمل البريد الإلكتروني ورقم الهاتف والرقم الوطني.");
+        return;
+      }
+
+      setData((prev) => ({ ...prev, email, phone, nationalId }));
+      setStep(3);
+      return;
     }
 
-    if (
-      step === 3 &&
-      (!data.gender || !data.birthDate || !data.address.trim())
-    ) {
-      setError("أكمل الجنس وتاريخ الميلاد والعنوان.");
-      return false;
+    if (step === 3) {
+      const gender = formData.get("gender") || "";
+      const birthDate = formData.get("birthDate") || "";
+      const address = formData.get("address") || "";
+
+      if (!gender || !birthDate || !address.trim()) {
+        setError("أكمل الجنس وتاريخ الميلاد والعنوان.");
+        return;
+      }
+
+      setData((prev) => ({ ...prev, gender, birthDate, address }));
+      setStep(4);
+      return;
     }
 
     if (step === 4) {
-      if (!data.password || !data.confirmPassword) {
+      const password = formData.get("password") || "";
+      const confirmPassword = formData.get("confirmPassword") || "";
+
+      if (!password || !confirmPassword) {
         setError("أدخل كلمة المرور وتأكيدها.");
-        return false;
+        return;
       }
 
-      if (data.password !== data.confirmPassword) {
+      if (password !== confirmPassword) {
         setError("كلمتا المرور غير متطابقتين.");
-        return false;
+        return;
+      }
+
+      try {
+        const payload = { ...data, password };
+        let user = typeof register === "function" ? await register(payload) : null;
+        console.log(user || payload);
+        navigate("/login");
+      } catch (err) {
+        setError(err?.message || "حدث خطأ أثناء إنشاء الحساب.");
       }
     }
-
-    return true;
-  };
-
-  const next = () => {
-    if (validate()) setStep((prev) => prev + 1);
   };
 
   const back = () => {
@@ -99,128 +113,127 @@ export function SignupPage() {
     setStep((prev) => prev - 1);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    if (step < 4) {
-      next();
-      return;
-    }
-
-    if (!validate()) return;
-
-    try {
-      const payload = { ...data };
-      delete payload.confirmPassword;
-
-      if (typeof register === "function") {
-        await register(payload);
-      } else {
-        console.log("Signup data:", payload);
-      }
-
-      navigate("/login");
-    } catch (err) {
-      setError(err?.message || "حدث خطأ أثناء إنشاء الحساب.");
-    }
-  };
-
   return (
-    <div className="form signin signup-page" dir="rtl">
+    <div className="form signup" dir="rtl">
       <div className="form-logo">
         <img src="/fwallet-icon.svg" alt="FWallet" />
         <p>FWallet</p>
       </div>
 
-      <div className="form-title">إنشاء حساب جديد</div>
-      <div className="signup-step-title">الخطوة {step} من 4</div>
+      <div className="form-title">قم باستكمال جميع الخطوات لانشاء الحساب</div>
+      
 
-      <form onSubmit={handleSubmit} className="login-form">
+      <form onSubmit={handleSubmit} className="signup-form">
+        <div className="signup-step-title">الخطوة {step} من 4</div>
         {step === 1 && (
           <>
-            <div className="signup-avatar">
+            {/* <div className="signup-avatar">
               <label className="signup-avatar-box">
-                {data.avatar ? (
-                  <img src={data.avatar} alt="الصورة الشخصية" />
-                ) : (
-                  <Camera />
-                )}
+                {avatar ? <img src={avatar} alt="الصورة الشخصية" /> : <Camera />}
                 <input type="file" accept="image/*" onChange={uploadAvatar} hidden />
               </label>
               <span>الصورة الشخصية</span>
+            </div> */}
+
+            <div className="user-name input">
+              <label htmlFor="fullName">الاسم الكامل</label>
+              <input className={error && "input-error"} name="fullName" type="text" defaultValue={data.fullName} />
+               {error &&showUserNameError(error)}
             </div>
 
-            <Field label="الاسم الكامل" name="fullName" value={data.fullName} onChange={update} icon={<User />} />
-            <Field label="اسم المستخدم" name="username" value={data.username} onChange={update} icon={<User />} />
+            <div className="user-name input">
+              <label htmlFor="username">اسم المستخدم</label>
+              <input className={error && "input-error"} name="username" type="text" defaultValue={data.username} />
+               {error &&showUserNameError(error)}
+            </div>
           </>
         )}
 
         {step === 2 && (
           <>
-            <Field label="البريد الإلكتروني" name="email" type="email" value={data.email} onChange={update} icon={<Mail />} />
-            <Field label="رقم الهاتف" name="phone" type="tel" value={data.phone} onChange={update} icon={<Phone />} />
-            <Field label="الرقم الوطني" name="nationalId" value={data.nationalId} onChange={update} icon={<IdCard />} />
+            <div className="user-name input">
+              <label htmlFor="email">البريد الإلكتروني</label>
+              <input className={error && "input-error"} name="email" type="email" defaultValue={data.email} />
+               {error &&showUserNameError(error)}
+            </div>
+
+            <div className="user-name input">
+              <label htmlFor="phone">رقم الهاتف</label>
+              <input className={error && "input-error"} name="phone" type="tel" defaultValue={data.phone} />
+               {error &&showUserNameError(error)}
+            </div>
+
+            <div className="user-name input">
+              <label htmlFor="nationalId">الرقم الوطني</label>
+              <input className={error && "input-error"} name="nationalId" type="text" defaultValue={data.nationalId} />
+               {error &&showUserNameError(error)}
+            </div>
           </>
         )}
 
         {step === 3 && (
           <>
-            <div className="input">
+            <div className="user-name input">
               <label htmlFor="gender">الجنس</label>
-              <div className="signup-input-wrapper">
-                <User className="signup-field-icon" />
-                <select
-                  id="gender"
-                  value={data.gender}
-                  onChange={(e) => update("gender", e.target.value)}
-                >
-                  <option value="">اختر الجنس</option>
-                  <option value="male">ذكر</option>
-                  <option value="female">أنثى</option>
-                </select>
-              </div>
+              <select className={error && "input-error"} name="gender" defaultValue={data.gender || ""}>
+                <option value="">اختر الجنس</option>
+                <option value="male">ذكر</option>
+                <option value="female">أنثى</option>
+              </select>
+               {error &&showUserNameError(error)}
             </div>
 
-            <Field label="تاريخ الميلاد" name="birthDate" type="date" value={data.birthDate} onChange={update} icon={<IdCard />} />
-            <Field label="العنوان" name="address" value={data.address} onChange={update} icon={<MapPin />} />
+            <div className="user-name input">
+              <label htmlFor="birthDate">تاريخ الميلاد</label>
+              <input className={error && "input-error"} name="birthDate" type="date" defaultValue={data.birthDate} />
+               {error &&showUserNameError(error)}
+            </div>
+
+            <div className="user-name input">
+              <label htmlFor="address">العنوان</label>
+              <input className={error && "input-error"} name="address" type="text" defaultValue={data.address} />
+               {error &&showUserNameError(error)}
+            </div>
           </>
         )}
 
         {step === 4 && (
           <>
-            <PasswordField
-              label="كلمة المرور"
-              name="password"
-              value={data.password}
-              onChange={update}
-              visible={showPassword}
-              onToggle={() => setShowPassword((prev) => !prev)}
-            />
+            <div className="password input">
+              <label htmlFor="password">كلمة المرور</label>
+              <input
+                className={error && "input-error"}
+                name="password"
+                type={showPassword ? "text" : "password"}
+              />
+               {error &&showUserNameError(error)}
+              <button type="button" className="signup-password-toggle" onClick={() => setShowPassword((prev) => !prev)} > {showPassword ? <EyeOff  /> : <Eye  />} </button>
+            </div>
 
-            <PasswordField
-              label="تأكيد كلمة المرور"
-              name="confirmPassword"
-              value={data.confirmPassword}
-              onChange={update}
-              visible={showConfirm}
-              onToggle={() => setShowConfirm((prev) => !prev)}
-            />
+            <div className="password input">
+              <label htmlFor="confirmPassword">تأكيد كلمة المرور</label>
+              <input
+                className={error && "input-error"}
+                name="confirmPassword"
+                type={showConfirm ? "text" : "password"}
+              />
+               {error &&showUserNameError(error)}
+              <button type="button" className="signup-password-toggle" onClick={() => setShowConfirm((prev) => !prev)} > {showConfirm ? <EyeOff  /> : <Eye  />} </button>
+            </div>
           </>
         )}
 
-        {error && <div className="error-message">{error}</div>}
+      
 
         <div className="signup-buttons">
           {step > 1 && (
             <button type="button" className="signup-back" onClick={back}>
-              <ArrowRight />
-              السابق
+              <ArrowRight /> السابق
             </button>
           )}
 
           <button className="submit" type="submit">
-            {step === 4 ? "إنشاء الحساب" : "التالي"}
-            <ArrowLeft />
+            {step === 4 ? "إنشاء الحساب" : "التالي"} <ArrowLeft />
           </button>
         </div>
       </form>
@@ -228,58 +241,6 @@ export function SignupPage() {
       <div className="create-account-link">
         <p>لديك حساب؟</p>
         <NavLink className="link" to="/login">تسجيل الدخول</NavLink>
-      </div>
-    </div>
-  );
-}
-
-function Field({ label, name, value, onChange, icon, type = "text" }) {
-  return (
-    <div className="input">
-      <label htmlFor={name}>{label}</label>
-      <div className="signup-input-wrapper">
-        <span className="signup-field-icon">{icon}</span>
-        <input
-          id={name}
-          name={name}
-          type={type}
-          value={value}
-          onChange={(e) => onChange(name, e.target.value)}
-          required
-        />
-      </div>
-    </div>
-  );
-}
-
-function PasswordField({
-  label,
-  name,
-  value,
-  onChange,
-  visible,
-  onToggle,
-}) {
-  return (
-    <div className="input">
-      <label htmlFor={name}>{label}</label>
-      <div className="signup-input-wrapper">
-        <Lock className="signup-field-icon" />
-        <input
-          id={name}
-          name={name}
-          type={visible ? "text" : "password"}
-          value={value}
-          onChange={(e) => onChange(name, e.target.value)}
-          required
-        />
-        <button
-          type="button"
-          className="signup-password-toggle"
-          onClick={onToggle}
-        >
-          {visible ? <EyeOff /> : <Eye />}
-        </button>
       </div>
     </div>
   );
