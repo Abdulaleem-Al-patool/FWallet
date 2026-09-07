@@ -1,0 +1,416 @@
+.transfer-status-page {
+    width: 100%;
+    min-height: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+    background: var(--secondry-bg);
+}
+
+.transfer-status-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.status-header h1 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 28px;
+}
+
+.status-header p,
+.status-card-header p {
+    margin: 6px 0 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.status-main-card,
+.status-card,
+.status-state-card {
+    background: var(--primary-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+}
+
+.status-main-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 26px 28px;
+}
+
+.status-card {
+    padding: 24px;
+}
+
+.status-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.status-card-header h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 18px;
+}
+
+.transfer-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.status-badge-icon,
+.status-state-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.status-badge-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--white-color);
+    font-size: 13px;
+}
+
+.status-success {
+    color: #15803D;
+}
+
+.transfer-status-badge.status-success {
+    background: #DCFCE7;
+}
+
+.transfer-status-badge.status-success .status-badge-icon {
+    background: #15803D;
+}
+
+.status-pending {
+    color: #B45309;
+}
+
+.transfer-status-badge.status-pending {
+    background: #FEF3C7;
+}
+
+.transfer-status-badge.status-pending .status-badge-icon {
+    background: #B45309;
+}
+
+.status-failed {
+    color: #DC2626;
+}
+
+.transfer-status-badge.status-failed {
+    background: #FEE2E2;
+}
+
+.transfer-status-badge.status-failed .status-badge-icon {
+    background: #DC2626;
+}
+
+.status-main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.status-main-info span,
+.status-info-item span,
+.transaction-grid span,
+.transaction-header span,
+.route-label {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.status-main-info strong,
+.route-account strong,
+.transaction-header strong {
+    color: var(--text-primary);
+    direction: ltr;
+}
+
+/* Information */
+
+.status-info-grid,
+.transaction-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.status-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.transaction-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.status-info-item,
+.route-account {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 16px;
+    background: var(--secondry-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+}
+
+.status-info-item strong,
+.transaction-grid strong {
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.status-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    font-size: 20px !important;
+}
+
+.status-amount small {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* Route */
+
+.transfer-route {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.route-account {
+    padding: 18px;
+}
+
+.route-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--secondry-color);
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Transactions */
+
+.transaction-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    border-radius: 999px;
+    background: var(--secondry-100);
+    color: var(--secondry-600);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.transaction-item {
+    padding: 18px;
+    background: var(--secondry-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+}
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.empty-transactions {
+    padding: 30px;
+    text-align: center;
+    color: var(--text-muted);
+    background: var(--secondry-bg);
+    border: 1px dashed var(--border-light);
+    border-radius: 10px;
+}
+
+
+.status-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-bottom: 10px;
+}
+
+.status-primary-button,
+.status-secondary-button {
+    min-width: 130px;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.status-primary-button {
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+.status-primary-button:hover {
+    background: var(--primary-500);
+    transform: translateY(-1px);
+}
+
+.status-secondary-button {
+    border: 1px solid var(--border-light);
+    background: var(--primary-bg);
+    color: var(--text-primary);
+}
+
+.status-secondary-button:hover {
+    background: var(--secondry-bg);
+}
+
+/* State */
+
+.status-state-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.status-state-card h1 {
+    margin: 18px 0 8px;
+    color: var(--text-primary);
+    font-size: 22px;
+}
+
+.status-state-card p {
+    margin: 0 0 22px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.status-state-icon {
+    width: 58px;
+    height: 58px;
+    background: var(--secondry-100);
+    color: var(--secondry-600);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.status-error-state .status-state-icon {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.status-error-message {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    border-radius: 8px;
+    color: #B91C1C;
+    font-size: 13px;
+    direction: ltr;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+.status-spinner {
+    width: 42px;
+    height: 42px;
+    border: 4px solid var(--primary-100);
+    border-top-color: var(--secondry-color);
+    border-radius: 50%;
+    animation: status-spin .8s linear infinite;
+}
+
+@keyframes status-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .status-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .transaction-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .transfer-status-page {
+        padding: 20px 15px;
+    }
+
+    .status-main-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .status-main-info {
+        align-items: flex-start;
+    }
+
+    .transfer-route,
+    .status-info-grid,
+    .transaction-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .route-arrow {
+        margin: auto;
+        transform: rotate(-90deg);
+    }
+
+    .status-actions {
+        flex-direction: column-reverse;
+    }
+
+    .status-primary-button,
+    .status-secondary-button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,227 @@
+
+.multi-transfer-page {
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.multi-transfer-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.transfer-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.transfer-header h1 {
+    margin-bottom: 8px;
+}
+
+.transfer-header p {
+    margin: 0;
+    color: #666;
+}
+
+.transfer-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.transfer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.form-select,
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.sources-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.sources-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.add-source-button,
+.remove-source-button {
+    border: none;
+    border-radius: 7px;
+    padding: 9px 14px;
+    cursor: pointer;
+}
+
+.add-source-button {
+    background: #eee;
+}
+
+.remove-source-button {
+    background: #f3d6d6;
+}
+
+.source-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 12px;
+    align-items: end;
+    padding: 18px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.amount-wrapper {
+    position: relative;
+}
+
+.amount-currency {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.transfer-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+    border-radius: 10px;
+    background: #f7f7f7;
+    font-size: 18px;
+}
+
+.validation-error {
+    padding: 12px;
+    border-radius: 8px;
+    background: #fdeaea;
+    color: #b00020;
+}
+
+.review-button,
+.confirm-button {
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.review-button {
+    background: #222;
+    color: white;
+}
+
+.validation-result {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+.validation-result-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.success-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #dff5e3;
+}
+
+.transfer-summary {
+    margin: 20px 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-label {
+    color: #666;
+}
+
+.summary-value {
+    font-weight: 600;
+    text-align: left;
+}
+
+.confirm-button {
+    width: 100%;
+    background: #222;
+    color: white;
+}
+
+.transfer-state {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.state-card {
+    padding: 30px;
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+}
+
+.state-error {
+    color: #b00020;
+}
+
+
+@media (max-width: 600px) {
+
+    .transfer-card {
+        padding: 20px;
+    }
+
+    .source-row {
+        grid-template-columns: 1fr;
+    }
+
+    .sources-header {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .summary-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

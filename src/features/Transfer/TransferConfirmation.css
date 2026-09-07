@@ -1,0 +1,330 @@
+.transfer-confirmation-page {
+    direction: rtl;
+    width: 100%;
+    min-height: 100%;
+    padding: 40px 24px;
+    box-sizing: border-box;
+    background: var(--secondry-bg);
+}
+
+.transfer-confirmation-container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.confirmation-header {
+    margin-bottom: 28px;
+}
+
+.confirmation-header h1 {
+    margin: 0 0 8px;
+    color: var(--text-primary);
+    font-size: 30px;
+}
+
+.confirmation-header p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.confirmation-card {
+    padding: 30px;
+    background: var(--white-color);
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+}
+
+.confirmation-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 15px 16px;
+    background: var(--secondry-100);
+    border: 1px solid rgba(34, 211, 238, .25);
+    border-radius: 12px;
+    color: var(--primary-color);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.confirmation-notice-icon,
+.confirmation-direction-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.confirmation-notice-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--secondry-color);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.confirmation-summary {
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: var(--white-color);
+}
+
+.confirmation-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 58px;
+    padding: 0 18px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.confirmation-row:last-child {
+    border-bottom: 0;
+}
+
+.confirmation-label {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.confirmation-value {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.confirmation-account {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.confirmation-account-name {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.confirmation-account-id {
+    color: var(--text-muted);
+    font-size: 12px;
+    direction: ltr;
+}
+
+.confirmation-source {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 8px 0;
+}
+
+.confirmation-source + .confirmation-source {
+    border-top: 1px solid #eee;
+}
+
+.confirmation-direction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    background: var(--secondry-bg);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.confirmation-direction-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--secondry-100);
+    border: 1px solid rgba(34, 211, 238, .25);
+    color: var(--secondry-600);
+    font-size: 20px;
+}
+
+.confirmation-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--primary-color);
+}
+
+.confirmation-amount-label {
+    color: var(--primary-100);
+    font-size: 14px;
+}
+
+.confirmation-amount-value {
+    direction: ltr;
+    color: var(--secondry-color);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.confirmation-error {
+    margin-top: 20px;
+    padding: 14px 16px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    color: #b91c1c;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.confirmation-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.cancel-transfer-button,
+.confirm-transfer-button {
+    width: 100%;
+    height: 52px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.cancel-transfer-button {
+    border: 1px solid var(--border-light);
+    background: var(--white-color);
+    color: var(--text-primary);
+}
+
+.cancel-transfer-button:hover {
+    background: var(--secondry-bg);
+    border-color: var(--primary-300);
+}
+
+.confirm-transfer-button {
+    border: 0;
+    background: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 700;
+}
+
+.confirm-transfer-button:hover {
+    background: var(--primary-500);
+    box-shadow: 0 6px 18px rgba(34, 211, 238, .18);
+}
+
+.cancel-transfer-button:active,
+.confirm-transfer-button:active {
+    transform: translateY(1px);
+}
+
+.cancel-transfer-button:disabled,
+.confirm-transfer-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.confirm-transfer-loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.confirm-transfer-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: transfer-spin .7s linear infinite;
+}
+
+@keyframes transfer-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.transfer-confirmation-state {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    direction: rtl;
+    background: var(--secondry-bg);
+}
+
+.transfer-confirmation-state-card {
+    width: min(450px, calc(100% - 40px));
+    padding: 30px;
+    text-align: center;
+    background: var(--white-color);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+}
+
+.transfer-confirmation-state-card h2 {
+    margin: 0 0 10px;
+    color: var(--text-primary);
+    font-size: 20px;
+}
+
+.transfer-confirmation-state-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .transfer-confirmation-page {
+        padding: 24px 14px;
+    }
+
+    .confirmation-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .confirmation-header h1 {
+        font-size: 25px;
+    }
+
+    .confirmation-header p {
+        font-size: 14px;
+    }
+
+    .confirmation-row {
+        min-height: auto;
+        gap: 15px;
+        align-items: flex-start;
+        padding: 13px 14px;
+    }
+
+    .confirmation-amount {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .confirmation-amount-value {
+        font-size: 22px;
+    }
+
+    .confirmation-actions {
+        grid-template-columns: 1fr;
+    }
+}
