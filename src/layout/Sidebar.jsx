@@ -12,7 +12,7 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
-import reactLogo from "../assets/hero.png";
+
 
 import { useAppData } from "../core/state/useAppData.jsx";
 import { useAuth } from "../core/auth/AuthContext";
