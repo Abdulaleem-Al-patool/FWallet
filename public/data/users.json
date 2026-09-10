@@ -1,0 +1,21 @@
+/*[
+  {
+    "id": "user-001",
+    "name": "محمد راجح",
+    "email": "mohammed@example.com",
+    "status": "active"
+  },
+  {
+    "id": "user-002",
+    "name": "أحمد علي",
+    "email": "ahmed@example.com",
+    "status": "active"
+  }
+]
+
+*/
+[
+{   "token":"Bearer ahmed",
+        "userName":"ahmed",
+        "password":"ahmed"}
+]

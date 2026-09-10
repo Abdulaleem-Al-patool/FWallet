@@ -12,6 +12,10 @@ import { SignupPage } from "./features/auth/signup.page";
 import {TransactionsPage} from "./features/Transactions/Transaction.page";
 import {TransactionDetails} from "./features/TransactionDetails/TransactionDetails.Page";
 import {AccountsPage} from "./features/accounts/accounts.page";
+import {SingleTransfer} from "./features/transfer/SingleTransfer"
+import {MultiSourceTransfer} from "./features/transfer/MultiSourceTransfer"
+import {TransferConfirmation} from "./features/transfer/TransferConfirmation"
+import {TransferStatus} from "./features/transfer/TransferStatus"
 import "./features/auth/login.style.css"
 
 
@@ -43,8 +47,13 @@ export default function App(){
             path="/transactions/:id"
             element={<TransactionDetails/>}
         />
+         <Route path="/accounts" element={<AccountsPage/>}>  </Route>
+             <Route path="/single-transfer" element={<SingleTransfer />}/>
+        <Route path="/transfer-confirmation" element={<TransferConfirmation />}/>
+        <Route path="/multi-transfer" element={<MultiSourceTransfer />}/>
+        <Route path="/transfer-status" element={<TransferStatus />}/>
             </Route>
-             <Route path="/accounts" element={<AccountsPage/>}>  </Route>
+            
           </Route>
         </Routes>
    
