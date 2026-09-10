@@ -1,0 +1,26 @@
+[
+  {
+    "token": "Bearer ahmed",
+    "data": [
+      {
+        "id": "transfer-001",
+        "type": "single",
+        "status": "completed",
+        "requestedAmount": 1000,
+        "requestedCurrency": "SAR",
+        "source": {
+          "accountId": "account-001",
+          "amount": 1000,
+          "currency": "SAR"
+        },
+        "destination": {
+          "accountId": "account-003",
+          "currency": "SAR"
+        },
+        "transactionIds": [
+          "transaction-101"
+        ]
+      }
+    ]
+  }
+]

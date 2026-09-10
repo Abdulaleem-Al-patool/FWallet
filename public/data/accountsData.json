@@ -1,0 +1,34 @@
+[
+  {
+    "token": "Bearer ahmed",
+    "data": [
+      {
+        "id": "account-001",
+        "name": "الحساب الرئيسي",
+        "accountNumber": "1000123456",
+        "currency": "SAR",
+        "balance": 15000,
+        "providerId": "provider-001",
+        "status": "active"
+      },
+      {
+        "id": "account-002",
+        "name": "حساب الدولار",
+        "accountNumber": "1000789456",
+        "currency": "USD",
+        "balance": 4200,
+        "providerId": "provider-001",
+        "status": "active"
+      },
+      {
+        "id": "account-003",
+        "name": "حساب المصروفات",
+        "accountNumber": "1000789456",
+        "currency": "USD",
+        "balance": 4200,
+        "providerId": "provider-001",
+        "status": "active"
+      }
+    ]
+  }
+]
