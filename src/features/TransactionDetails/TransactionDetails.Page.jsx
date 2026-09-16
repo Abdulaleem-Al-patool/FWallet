@@ -16,7 +16,7 @@ const Data=location.state?.transactionData;
         <div className="transaction-d-page" >
         
       <ContainerBox className="box">
-      <h2>معرف العملية: {id}</h2>
+      <h3>معرف العملية: {id}</h3>
                 {Data ? (
                     <div>
                         <h3>العنوان: {Data.title}</h3>

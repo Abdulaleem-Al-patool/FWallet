@@ -1,0 +1,97 @@
+[
+  {
+    "token": "Bearer ahmed",
+    "data": [
+      {
+        "id": 1,
+        "provider": "جيب",
+        "accountNumber": "SA 6011",
+        "currency": "USD",
+        "amount": "1200",
+        "status": "active",
+        "synchrouns": false,
+        "ownerName": "Ahmed Ali",
+        "bankBranch": "صنعاء",
+        "iban": "SA0000000000006011",
+        "lastSync": "2026-09-12T18:30:00",
+        "createdAt": "2026-01-15",
+        "description": "حساب جيب الرئيسي"
+      },
+      {
+        "id": 2,
+        "provider": "بنك الكريمي",
+        "accountNumber": "SA 8133",
+        "currency": "YER",
+        "amount": "50000",
+        "status": "active",
+        "synchrouns": true,
+        "ownerName": "Ahmed Ali",
+        "bankBranch": "صنعاء - التحرير",
+        "iban": "YE0000000000008133",
+        "lastSync": "2026-09-12T17:45:00",
+        "createdAt": "2026-02-10",
+        "description": "حساب الكريمي"
+      },
+      {
+        "id": 3,
+        "provider": "جيب",
+        "accountNumber": "SA 4920",
+        "currency": "USD",
+        "amount": "3000",
+        "status": "active",
+        "synchrouns": false,
+        "ownerName": "Ahmed Ali",
+        "bankBranch": "صنعاء",
+        "iban": "SA0000000000004920",
+        "lastSync": "2026-09-10T12:20:00",
+        "createdAt": "2026-03-05",
+        "description": "حساب الدولار"
+      },
+      {
+        "id": 4,
+        "provider": "مصرف الراجحي",
+        "accountNumber": "SA 3340",
+        "currency": "SAR",
+        "amount": "1500",
+        "status": "active",
+        "synchrouns": true,
+        "ownerName": "Ahmed Ali",
+        "bankBranch": "الرياض",
+        "iban": "SA0000000000003340",
+        "lastSync": "2026-09-12T19:00:00",
+        "createdAt": "2026-04-20",
+        "description": "حساب الراجحي"
+      },
+      {
+        "id": 5,
+        "provider": "بنك الكريمي",
+        "accountNumber": "SA 7701",
+        "currency": "YER",
+        "amount": "250000",
+        "status": "active",
+        "synchrouns": false,
+        "ownerName": "Ahmed Ali",
+        "bankBranch": "صنعاء - حدة",
+        "iban": "YE0000000000007701",
+        "lastSync": "2026-09-11T15:10:00",
+        "createdAt": "2026-05-12",
+        "description": "حساب الأعمال"
+      },
+      {
+        "id": 6,
+        "provider": "جيب",
+        "accountNumber": "SA 9921",
+        "currency": "USD",
+        "amount": "1200",
+        "status": "active",
+        "synchrouns": false,
+        "ownerName": "Ahmed Ali",
+        "bankBranch": "صنعاء",
+        "iban": "SA0000000000009921",
+        "lastSync": "2026-09-09T10:30:00",
+        "createdAt": "2026-06-01",
+        "description": "حساب إضافي"
+      }
+    ]
+  }
+]
