@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { NotificationBell } from "../features/notifications/notificationbell";
+import { NotificationBell } from "../features/notifications/NotificationBell.jsx";
 import { useAppData } from "../core/state/useAppData.jsx";
 import {Bell} from "lucide-react"
 const pageTitles = {

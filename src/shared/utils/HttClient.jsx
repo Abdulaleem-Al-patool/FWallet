@@ -52,3 +52,4 @@ async function get(endpoint,token) {
 }
 
 export const httpClient = { get, post };
+
