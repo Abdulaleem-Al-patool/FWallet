@@ -1,21 +1,8 @@
 
-// import FilterListAltIcon from '@mui/icons-material/FilterListAlt';
-import {ContainerBox} from "@/shared/utils/ContainerBox";
-import "./search.style.css"
-import {Header} from "../../layout/Header";
-
-
-
-
-
-
-
-
-
 import React, { useState, useMemo } from 'react';
 import { Funnel, CirclePlus, Search, SquareArrowOutUpRight, ArrowRight } from 'lucide-react';
 import { ContainerBox } from "../../shared/utils/ContainerBox";
-import { Header } from "../../layout/Header";
+
 import "./search.style.css";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../core/auth/AuthContext";
@@ -109,7 +96,7 @@ export function AccountsPage() {
 
   return (
     <div>
-      <Header />
+   
 
       <SearchBar
         searchQuery={searchQuery}
@@ -209,7 +196,7 @@ export function AccountsPage() {
 
                     <div className="transactions-section">
 
-                      <h3>المعاملات</h3>
+                      <h2>المعاملات</h2>
 
                       {isLoadingTransactions ? (
                         <p>جاري تحميل المعاملات...</p>
