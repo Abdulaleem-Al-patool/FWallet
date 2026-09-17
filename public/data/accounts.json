@@ -1,0 +1,61 @@
+[
+  {
+    "token": "Bearer ahmed",
+    "data": [
+      {
+        "id": 1,
+        "provider": "جيب",
+        "accountNumber": "SA 6011",
+        "currency": "USD",
+        "amount": "1200",
+        "status": "active",
+        "synchrouns": false
+      },
+      {
+        "id": 2,
+        "provider": "بنك الكريمي",
+        "accountNumber": "SA 8133",
+        "currency": "YER",
+        "amount": "50000",
+        "status": "active",
+        "synchrouns": true
+      },
+      {
+        "id": 3,
+        "provider": "جيب",
+        "accountNumber": "SA 4920",
+        "currency": "USD",
+        "amount": "3000",
+        "status": "active",
+        "synchrouns": false
+      },
+      {
+        "id": 4,
+        "provider": "مصرف الراجحي",
+        "accountNumber": "SA 3340",
+        "currency": "SAR",
+        "amount": "1500",
+        "status": "active",
+        "synchrouns": true
+      },
+      {
+        "id": 5,
+        "provider": "بنك الكريمي",
+        "accountNumber": "SA 7701",
+        "currency": "YER",
+        "amount": "250000",
+        "status": "active",
+        "synchrouns": false
+      },
+      {
+        "id": 6,
+        "provider": "جيب",
+        "accountNumber": "SA 9921",
+        "currency": "USD",
+        "amount": "1200",
+        "status": "active",
+        "synchrouns": false
+      }
+    ]
+  }
+]
