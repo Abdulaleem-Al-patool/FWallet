@@ -9,8 +9,8 @@ import { NotificationPage } from "./features/notifications/notification.page";
 import { AppDataProvider } from "./core/state/AppDataProvider";
 import { LoginPage } from "./features/auth/login.page";
 import { SignupPage } from "./features/auth/signup.page";
-import {TransactionsPage} from "./features/Transactions/Transaction.page";
-import {TransactionDetails} from "./features/TransactionDetails/TransactionDetails.Page";
+import {TransactionsPage} from "./features/transactions/Transaction.page";
+import {TransactionDetails} from "./features/transactionDetails/TransactionDetails.Page";
 import {AccountsPage} from "./features/accounts/accounts.page";
 import {SingleTransfer} from "./features/transfer/SingleTransfer"
 import {MultiSourceTransfer} from "./features/transfer/MultiSourceTransfer"
