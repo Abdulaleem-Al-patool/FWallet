@@ -1,17 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useMemo } from 'react';
 import { Funnel, CirclePlus, Search, SquareArrowOutUpRight, ArrowRight } from 'lucide-react';
 import { ContainerBox } from "../../shared/utils/ContainerBox";
@@ -109,7 +96,7 @@ export function AccountsPage() {
 
   return (
     <div>
-      
+   
 
       <SearchBar
         searchQuery={searchQuery}
@@ -209,7 +196,7 @@ export function AccountsPage() {
 
                     <div className="transactions-section">
 
-                      <h3>المعاملات</h3>
+                      <h2>المعاملات</h2>
 
                       {isLoadingTransactions ? (
                         <p>جاري تحميل المعاملات...</p>

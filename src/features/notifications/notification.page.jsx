@@ -1,8 +1,8 @@
 import { useState } from "react";
-import {ContainerBox} from "../../shared/utils/ContainerBox";
+import {ContainerBox} from "@/shared/utils/ContainerBox";
 import { useAuth } from "../../core/auth/AuthContext";
 import { useQuery } from "@tanstack/react-query";
-import {fetchData} from "../../shared/utils/FetchData";
+import {fetchData} from "@/shared/utils/FetchData";
 
 import { useNavigate } from "react-router-dom";
 import "./notification.style.css";

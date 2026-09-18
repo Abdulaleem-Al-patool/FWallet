@@ -1,5 +1,5 @@
 import {useParams,useLocation} from "react-router-dom";
-import {ContainerBox} from "../../shared/utils/ContainerBox";
+import {ContainerBox} from "@/shared/utils/ContainerBox";
 import "./TransactionDetails.style.css"
 
 
