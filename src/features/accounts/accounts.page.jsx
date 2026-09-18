@@ -83,14 +83,20 @@ export function AccountsPage() {
         selectedProvider === "ALL" ||
         account.provider === selectedProvider;
 
-      const query = searchQuery.trim();
+      
+const query = searchQuery.trim().toLowerCase();
 
-      const matchesSearch =
-        account.provider.includes(query) ||
-        (account.accountNumber &&
-          account.accountNumber.includes(query));
+    const matchesProviderName = account.provider
+      ? String(account.provider).toLowerCase().includes(query)
+      : false;
 
-      return matchesProvider && matchesSearch;
+      const matchesAccountNumber = account.accountNumber
+      ? String(account.accountNumber).toLowerCase().includes(query)
+      : false;
+
+
+     
+      return matchesProvider && (matchesProviderName || matchesAccountNumber);
     });
   }, [accounts, searchQuery, selectedProvider]);
 
