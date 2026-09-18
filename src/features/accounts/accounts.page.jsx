@@ -15,7 +15,7 @@
 import React, { useState, useMemo } from 'react';
 import { Funnel, CirclePlus, Search, SquareArrowOutUpRight, ArrowRight } from 'lucide-react';
 import { ContainerBox } from "../../shared/utils/ContainerBox";
-import { Header } from "../../layout/Header";
+
 import "./search.style.css";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../core/auth/AuthContext";
@@ -109,7 +109,7 @@ export function AccountsPage() {
 
   return (
     <div>
-      <Header />
+      
 
       <SearchBar
         searchQuery={searchQuery}
