@@ -274,12 +274,7 @@ const query = searchQuery.trim().toLowerCase();
 
                     <div className="account-actions">
 
-                      {/* <button
-                        type="button"
-                        className="btn"
-                      >
-                        بدء تحويل من الحساب
-                      </button> */}
+                     
                         <Button Onclick={() => navigate("/single-transfer")} className="btn"   >
                                                   بدء تحويل من الحساب
    
