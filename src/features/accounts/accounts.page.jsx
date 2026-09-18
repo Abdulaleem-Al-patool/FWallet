@@ -2,7 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import { Funnel, CirclePlus, Search, SquareArrowOutUpRight, ArrowRight } from 'lucide-react';
 import { ContainerBox } from "../../shared/utils/ContainerBox";
-
+import { useNavigate } from "react-router-dom";
 import "./search.style.css";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../core/auth/AuthContext";
@@ -10,7 +10,7 @@ import { fetchData } from "../../shared/utils/FetchData";
 
 export function AccountsPage() {
   const { token } = useAuth();
-
+   const navigate=useNavigate();
   const [selectedAccount, setSelectedAccount] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProvider, setSelectedProvider] = useState("ALL");
@@ -274,12 +274,16 @@ const query = searchQuery.trim().toLowerCase();
 
                     <div className="account-actions">
 
-                      <button
+                      {/* <button
                         type="button"
                         className="btn"
                       >
                         بدء تحويل من الحساب
-                      </button>
+                      </button> */}
+                        <Button Onclick={() => navigate("/add-account")} className="btn"   >
+                                                  بدء تحويل من الحساب
+   
+                        </Button>
 
                     </div>
 
@@ -440,8 +444,10 @@ export function SearchBar({
         setSelectedProvider={setSelectedProvider}
       />
 
-      <Button />
-
+    
+<Button Onclick={() => navigate("/add-account")}  icon={<CirclePlus />} >
+ربط حساب مالي 
+</Button>
     </div>
   );
 }
@@ -483,12 +489,12 @@ export function DropDownList({
   );
 }
 
-export function Button() {
+export function Button({children,icon,onClick}) {
 
   return (
-    <button type="button" className="btn">
-      ربط حساب مالي
-      <CirclePlus />
+    <button type="button" className="btn" onClick={onClick}>
+      {children}
+    {icon}      
     </button>
   );
 }
