@@ -280,7 +280,7 @@ const query = searchQuery.trim().toLowerCase();
                       >
                         بدء تحويل من الحساب
                       </button> */}
-                        <Button Onclick={() => navigate("/add-account")} className="btn"   >
+                        <Button Onclick={() => navigate("/single-transfer")} className="btn"   >
                                                   بدء تحويل من الحساب
    
                         </Button>
